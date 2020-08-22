@@ -47,7 +47,7 @@ extension Array {
 
 let intArray:[Int] = [10,3,7,3,5,9,0,6,3,5,7,42,1,62,23,11,99]
 
-let filteredArray = intArray.filter { (int) -> Bool in
+let filteredArray = intArray.myfilter { (int) -> Bool in
     int > 3
 }
 
