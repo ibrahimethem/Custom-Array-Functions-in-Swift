@@ -10,7 +10,7 @@ import Foundation
 
 extension Array {
     
-    func filter(condition: (Element) -> Bool) -> [Element] {
+    func myfilter(condition: (Element) -> Bool) -> [Element] {
         var array = self
         
         for item in array {
