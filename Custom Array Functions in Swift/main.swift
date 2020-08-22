@@ -11,15 +11,16 @@ import Foundation
 extension Array {
     
     func myfilter(condition: (Element) -> Bool) -> [Element] {
-        var array = self
+        let array = self
+        var newArray = [Element]()
         
         for item in array {
             if condition(item) {
-                array.append(item)
+                newArray.append(item)
             }
         }
         
-        return array
+        return newArray
     }
     
     
