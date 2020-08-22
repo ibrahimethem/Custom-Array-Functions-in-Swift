@@ -8,21 +8,23 @@
 
 import Foundation
 
-class CustomArrayFunctions {
+extension Array {
     
-    func filter(array: [Int], condition: (Int) -> Bool) -> [Int] {
-        var resultArray = [Int]()
+    func filter(condition: (Element) -> Bool) -> [Element] {
+        var array = self
+        
         for item in array {
             if condition(item) {
-                resultArray.append(item)
+                array.append(item)
             }
         }
-        return resultArray
+        
+        return array
     }
     
-    // use selection sort algorithm
-    func sorted(array: [Int], condition: (Int, Int) -> Bool) -> [Int] {
-        var array = array
+    
+    func mySorted(condition: (Element, Element) -> Bool) -> [Element] {
+        var array = self
         
         for i in 0..<(array.count-1) {
             var firstIndex = i
@@ -43,18 +45,17 @@ class CustomArrayFunctions {
     
 }
 
-let customArrayFunctions = CustomArrayFunctions()
-
 let intArray:[Int] = [10,3,7,3,5,9,0,6,3,5,7,42,1,62,23,11,99]
 
-let filteredArray = customArrayFunctions.filter(array: intArray) { (int) -> Bool in
+let filteredArray = intArray.filter { (int) -> Bool in
     int > 3
 }
 
 print("Original array:\n\(intArray)")
 print("Filtered array:\n\(filteredArray)")
 
-let sortedArray = customArrayFunctions.sorted(array: intArray) { (n1, n2) -> Bool in
+
+let sortedArray = intArray.mySorted { (n1, n2) -> Bool in
     n1 < n2
 }
 
@@ -73,5 +74,4 @@ print("Sorted array:\n\(sortedArray)")
 /// Sorted array:
 /// [0, 1, 3, 3, 3, 5, 5, 6, 7, 7, 9, 10, 11, 23, 42, 62, 99]
 ///
-
 
